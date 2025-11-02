@@ -1,0 +1,126 @@
+.file-uploader {
+  width: 100%;
+}
+
+.file-uploader__dropzone {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.file-uploader__dropzone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(255, 107, 0, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.file-uploader__dropzone:hover {
+  border-color: rgba(0, 243, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 243, 255, 0.2);
+}
+
+.file-uploader__dropzone:hover::before {
+  opacity: 1;
+}
+
+.file-uploader__dropzone--dragging {
+  border-color: #00f3ff;
+  background: rgba(0, 243, 255, 0.1);
+  transform: scale(1.02);
+}
+
+.file-uploader__dropzone--dragging::before {
+  opacity: 1;
+}
+
+.file-uploader__icon {
+  color: #00f3ff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.file-uploader__icon svg {
+  filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.file-uploader__text {
+  position: relative;
+  z-index: 1;
+}
+
+.file-uploader__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.file-uploader__subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.file-uploader__formats {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: monospace;
+}
+
+.file-uploader__input {
+  display: none;
+}
+
+.file-uploader__error {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 8px;
+  color: #ff6b6b;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .file-uploader__dropzone {
+    padding: 2rem 1rem;
+  }
+
+  .file-uploader__icon svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .file-uploader__title {
+    font-size: 1.1rem;
+  }
+
+  .file-uploader__subtitle {
+    font-size: 0.9rem;
+  }
+}
+
